@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Policy Decorator">
+  <meta name="keywords" content="Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Policy Decorator</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS Links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <!-- FontAwesome -->
+  <script defer src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0099cc, #00b3b3);
+      color: white;
+      padding: 4rem 0;
+    }
+
+    .hero-body .container {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero .title.is-1 {
+      margin-bottom: 1rem;
+    }
+
+    .publication-authors a {
+      color: #00b3b3;
+      text-decoration: none;
+    }
+
+    .publication-authors a:hover {
+      text-decoration: underline;
+    }
+
+    .section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .section .content {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .button {
+      background-color: #00b3b3;
+      color: white;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #008080;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: #00b3b3;
+    }
+
+    footer a:hover {
+      color: #008080;
+    }
+
+    /* Card Style for Video Section */
+    .card {
+      margin-top: 2rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-content {
+      padding: 2rem;
+    }
+
+    .card .title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .card img {
+      border-radius: 10px;
+    }
+  </style>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">Policy Decorator: Model-Agnostic Online Refinement for Large Policy Model</h1>
+      <div class="is-size-5 publication-authors">
+        <span class="author-block"><a href="index.html">Xiu Yuan</a><sup>1*</sup>,</span>
+        <span class="author-block"><a href="https://cseweb.ucsd.edu/~t3mu/">Tongzhou Mu</a><sup>1*</sup>,</span>
+        <span class="author-block"><a href="https://www.stoneztao.com">Stone Tao</a><sup>1</sup>,</span>
+        <span class="author-block"><a href="https://seerkfang.github.io">Yunhao Fang</a><sup>1</sup>,</span>
+        <span class="author-block"><a href="index.html">Mengke Zhang</a><sup>1</sup>,</span>
+        <span class="author-block"><a href="https://cseweb.ucsd.edu/~haosu/">Hao Su</a><sup>1,2</sup></span>
+      </div>
+
+      <div class="publication-links">
+        <span class="link-block">
+          <a href="index.html" class="button">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="index.html" class="button">
+            <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="index.html" class="button">
+            <span class="icon"><i class="fab fa-youtube"></i></span><span>Video</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="index.html" class="button">
+            <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="index.html" class="button">
+            <span class="icon"><i class="far fa-images"></i></span><span>Data</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Video Section -->
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <h2 class="title is-3">Video</h2>
+      <div class="card">
+        <div class="card-content">
+          <iframe src="https://drive.google.com/file/d/13B38IL9RYbcvBOCnTtkxtar-d4G47dTW/preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen width="100%" height="400"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Abstract Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Abstract</h2>
+    <div class="content has-text-justified">
+      Recent advancements in robot learning have used imitation learning with large models and extensive demonstrations to develop effective policies. However, these models are often limited by the quantity, quality, and diversity of demonstrations...
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="content">
+    <p>Website based on <a href="https://nerfies.github.io">Nerfies</a></p>
+    <p>This website is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    <p>This means you are free to borrow the <a href="index.html">source code</a> of this website, we just ask that you link back to this page in the footer. Please remember to remove the analytics code included in the header of the website if you do not want it.</p>
+  </div>
+</footer>
+
+</body>
+</html>

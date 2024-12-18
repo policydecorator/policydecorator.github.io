@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Policy Decorator">
+    <meta name="keywords" content="Robotics">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Policy Decorator</title>
+      
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+      
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+      
+        gtag('js', new Date());
+      
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+      
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+            rel="stylesheet">
+      
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="index.html">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Visualizations
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="index.html">
+              Home
+            </a>
+            <a class="navbar-item" href="base_policy.html">
+              Comparison with Base Policy
+            </a>
+            <a class="navbar-item" href="rl.html">
+              Comparison with RL
+            </a>
+            <a class="navbar-item" href="jsrl.html">
+              Comparison with JSRL
+            </a>
+            <a class="navbar-item" href="policy_degradation.html">
+              Policy Degradation
+            </a>
+            <a class="navbar-item" href="random_residual_actions.html">
+              Random Residual Actions
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+          <!-- Title Section -->
+          <div class="columns is-centered">
+            <div class="column is-four-fifths">
+              <!-- Center-align title only -->
+              <h2 class="title is-3 has-text-centered">Policy Decorator (Ours) vs. Jump-Start RL</h2>
+            </div>
+          </div>
+      
+          <!-- Abstract Section (No Card) -->
+          <div class="columns is-centered">
+            <div class="column is-four-fifths">
+              <div class="content">
+                <p>Jump-Start RL (JSRL) performs well in a few scenarios (5 out of 18) but significantly worse in the rest. It doesn't improve the base policy but learns a new one, failing to preserve desired traits like smooth and natural motion. In contrast, our refined policies maintain smooth, natural behavior by staying close to the base policy through the bounded residual action strategy.</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Key Observations Card -->
+          <div class="columns is-centered">
+            <div class="column is-four-fifths">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Center-align title only -->
+                  <h5 class="title is-5 has-text-centered">Key Observations</h5>
+                  <div class="content">
+                    <p>
+                      JSRL policies are noisy and jerky because they use the base policy only for the learning curriculum, not for imitation. As a result, they lack the smooth, natural motion of the base policy. In contrast, our refined policies stay close to the base policy, inheriting its smooth behavior from human teleoperation or motion planning demonstrations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- First Video Card (Peg Insertion Task) -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Center-align title only -->
+                  <h5 class="title is-5 has-text-centered text-darker-blue">Peg Insertion Task</h5>
+                  <div class="content text-darker-blue">
+                    <p>The Peg Insertion task requires highly precise manipulation, with the hole having only 3mm of clearance. The JSRL policy exhibits notably shaky motions, particularly when the robot arm attempts to pick up the peg and insert it into the hole. In contrast, our refined policy demonstrates smooth motions throughout the entire trajectory.</p>
+                  </div>
+                  <div class="content has-text-centered">
+                    <!-- Center-align iframe -->
+                    <iframe src="https://drive.google.com/file/d/1c6PBmE3PiLPppj5i4OwmXM_fj4yDRM4t/preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen width="600" height="300"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Second Video Card (Turn Faucet Task) -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Center-align title only -->
+                  <h5 class="title is-5 has-text-centered text-darker-blue">Turn Faucet Task</h5>
+                  <div class="content text-darker-blue">
+                    <p>The Turn Faucet task, which involves turning a faucet, shows erratic behavior with the JSRL policy. This results in collisions with the faucet, posing risks for sim-to-real transfer. In contrast, our refined policy demonstrates remarkably smooth motions, avoiding collisions and potential damage.</p>
+                  </div>
+                  <div class="content has-text-centered">
+                    <!-- Center-align iframe -->
+                    <iframe src="https://drive.google.com/file/d/1vKGAHLaRF7mJFRB1ATswAywR-hkRKGWU/preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen width="600" height="300"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      
+      
+</body>
+
+</html>

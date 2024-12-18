@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Policy Decorator">
+  <meta name="keywords" content="Robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Policy Decorator</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="index.html">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Visualizations
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="index.html">
+              Home
+            </a>
+            <a class="navbar-item" href="base_policy.html">
+              Comparison with Base Policy
+            </a>
+            <a class="navbar-item" href="rl.html">
+              Comparison with RL
+            </a>
+            <a class="navbar-item" href="jsrl.html">
+              Comparison with JSRL
+            </a>
+            <a class="navbar-item" href="policy_degradation.html">
+              Policy Degradation
+            </a>
+            <a class="navbar-item" href="random_residual_actions.html">
+              Random Residual Actions
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Policy Decorator: <span style="color: #4da2e4;">Model-Agnostic Online Refinement</span> for Large Policy Model</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="index.html">Xiu Yuan</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://cseweb.ucsd.edu/~t3mu/">Tongzhou Mu</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.stoneztao.com">Stone Tao</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://seerkfang.github.io">Yunhao Fang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="index.html">Mengke Zhang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cseweb.ucsd.edu/~haosu/">Hao Su</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of California, San Diego</span>
+            <span class="author-block"><sup>2</sup>Hillbot Inc.</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1PwWwFhFTJSUFmEFcrzEEcy5IYHYJ4KLd/preview"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/tongzhoumu/policy_decorator"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/drive/folders/1nLcuqx_7hUgel3-iXDS6MgZwKIZ0r0JH?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <h2 class="title is-3" style="text-align: center;">Video (4m39s)</h2>
+      <p class="content has-text-centered">Click the "cc" button at the lower right corner to show <span style="color: red;">captions</span>.</p>
+      <div class="card">
+        <div class="card-content">
+          <div style="position: relative; width: 100%; padding-bottom: 56%; overflow: hidden;">
+            <iframe 
+              src="https://drive.google.com/file/d/1PwWwFhFTJSUFmEFcrzEEcy5IYHYJ4KLd/preview" 
+              frameborder="0" 
+              allow="autoplay; encrypted-media" 
+              allowfullscreen 
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            </iframe>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Recent advancements in robot learning have used imitation learning with large models and extensive demonstrations to develop effective policies. However, these models are often limited by the quantity, quality, and diversity of demonstrations. This paper explores improving offline-trained imitation learning models through online interactions with the environment. We introduce Policy Decorator, which uses a model-agnostic residual policy to refine large imitation learning models during online interactions. By implementing controlled exploration strategies, Policy Decorator enables stable, sample-efficient online learning. Our evaluation spans eight tasks across two benchmarks—ManiSkill and Adroit—and involves two state-of-the-art imitation learning models (Behavior Transformer and Diffusion Policy). The results show Policy Decorator effectively improves the offline-trained policies and preserves the smooth motion of imitation learning models, avoiding the erratic behaviors of pure RL policies.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+    <!-- Abstract Section -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Combines Advantages of Base Policy and Online Learning</h2>
+        <div class="content has-text-justified">
+          An intriguing property of Policy Decorator is its ability to combine the advantages of the base policy and online learning.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+
+      <!-- Base Policy -->
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <h5 class="title is-5">Base Policy (w/o Online Learning)</h5>
+            <p class="content has-text-justified">The offline-trained base policies can reproduce the natural and smooth motions recorded in demonstrations but may have suboptimal performance.</p>
+            <div class="video-container">
+              <video autoplay controls muted loop playsinline height="300px">
+                <source src="./static/videos/peg_base.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ours (Base Policy + Online Residual) -->
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <h5 class="title is-5"><span style="color: #4da2e4;">Ours (Base Policy + Online Residual)</span></h5>
+            <p class="content has-text-justified">Policy Decorator (ours) not only achieves remarkably high success rates but also preserves the favorable attributes of the base policy.</p>
+            <div class="video-container">
+              <video controls playsinline height="300px">
+                <source src="./static/videos/peg_ours.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Online RL Policy -->
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <h5 class="title is-5">Online RL Policy (w/o Base Policy)</h5>
+            <p class="content has-text-justified">Policies solely learned by RL, though achieving good success rates, often exhibit jerky actions, rendering them unsuitable for real-world applications.</p>
+            <div class="video-container">
+              <video controls playsinline height="300px">
+                <source src="./static/videos/peg_rl.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Improve Various SOTA Policy Models</h2>
+        <div class="content has-text-justified">
+          Our framework, Policy Decorator, improves various state-of-the-art policy models, such as <span style="color: #4da2e4;">Behavior Transformer</span> and <span style="color: #4da2e4;">Diffusion Policy</span>, boosting their success rates to nearly 100% on challenging robotic tasks. It also significantly <span style="color: #4da2e4;">outperforms top-performing baselines</span> from both <span style="color: #4da2e4;">finetuning</span> and <span style="color: #4da2e4;">non-finetuning</span> method families.
+        </div>
+        <div class="content" style="text-align: center;">
+          <img src="./static/images/bar_all.jpg"
+               class="interpolation-image"
+               alt="Interpolate start reference image." width="600" height="400"/>
+        </div>        
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          Policy Decorator learns a <span style="color: #4da2e4;">residual policy via reinforcement learning with sparse reward</span>. On top of it, a set of <span style="color: #4da2e4;">controlled exploration mechanisms</span> is implemented. 
+          <span style="color: #4da2e4;">Controlled exploration (Progressive Exploration Schedule + Bounded Residual Actions)</span> enables the RL agent (both base policy and residual policy) to continuously receive sufficient success signals while exploring the environments. 
+        </div>
+        <div class="content has-text-justified">
+          <img src="./static/images/method_overview.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="more-visualizations">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">More Visualizations</h2>
+    <p class="content has-text-centered">click blue texts for visualizations</p>
+    <div class="columns is-centered">
+      <div class="column is-half">
+        
+        <div class="card mb-4">
+          <header class="card-header">
+            <p class="card-header-title"><a href="base_policy.html">What are the pros of Policy Decorator compared to base policy?</a></p>
+          </header>
+          <div class="card-content">
+            <div class="content has-text-justified">
+              Our refined policy navigates the task's hardest parts, where the base policy struggles.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <header class="card-header">
+            <p class="card-header-title"><a href="rl.html">What are the pros pf Policy Decorator compared to RL policy?</a></p>
+          </header>
+          <div class="card-content">
+            <div class="content has-text-justified">
+              Our refined policy behaves more smoothly and naturally than RL policy.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <header class="card-header">
+            <p class="card-header-title"><a href="jsrl.html">JSRL policy also performs well on some tasks, why not use it?</a></p>
+          </header>
+          <div class="card-content">
+            <div class="content has-text-justified">
+              JSRL doesn't improve the base policy but learns a new one, failing to preserve desired traits like smooth and natural motion.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <header class="card-header">
+            <p class="card-header-title"><a href="policy_degradation.html">What happens if we fine-tune base policy with a randomly initialized critic?</a></p>
+          </header>
+          <div class="card-content">
+            <div class="content has-text-justified">
+              Updating the base policy with a randomly initialized critic causes significant deviations and unlearning.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <header class="card-header">
+            <p class="card-header-title"><a href="random_residual_actions.html">Any problems with vanilla Residual RL?</a></p>
+          </header>
+          <div class="card-content">
+            <div class="content has-text-justified">
+              Random residual actions in early training stages cause the agent to deviate significantly from the base policy.
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-justified">
+          <p>Website based on <a href="https://nerfies.github.io">Nerfies</a></p>
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="index.html">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

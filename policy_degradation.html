@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Policy Decorator">
+    <meta name="keywords" content="Robotics">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Policy Decorator</title>
+      
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+      
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+      
+        gtag('js', new Date());
+      
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+      
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+            rel="stylesheet">
+      
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="index.html">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Visualizations
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="index.html">
+              Home
+            </a>
+            <a class="navbar-item" href="base_policy.html">
+              Comparison with Base Policy
+            </a>
+            <a class="navbar-item" href="rl.html">
+              Comparison with RL
+            </a>
+            <a class="navbar-item" href="jsrl.html">
+              Comparison with JSRL
+            </a>
+            <a class="navbar-item" href="policy_degradation.html">
+              Policy Degradation
+            </a>
+            <a class="navbar-item" href="random_residual_actions.html">
+              Random Residual Actions
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+          <!-- Policy Degradation Section (Title and Intro Text) -->
+          <div class="columns is-centered">
+            <div class="column is-three-quarters">
+              <section>
+                <!-- Center-aligned Title -->
+                <h2 class="title is-3 has-text-centered">Policy Degradation</h2>
+                <!-- Left-aligned Text -->
+                <div class="content has-text-justified">
+                  <p>This page shows experiments demonstrating how updating the base policy with a randomly initialized critic causes significant deviations and unlearning. Once unlearning occurs, relearning becomes difficult due to the loss of the sparse reward signal.</p>
+                </div>
+              </section>
+            </div>
+          </div>          
+      
+          <!-- Updates Section -->
+          <div class="columns is-centered">
+            <!-- 0 Update Card -->
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Center-aligned Title -->
+                  <h5 class="title is-5 has-text-centered">0 Update</h5>
+                  <div class="content has-text-justified">
+                    <p>
+                      In the StackCube task, a robot arm must pick up a red cube and stack it on a green cube. Initially, a pre-trained base policy successfully grasps the red cube and accurately places it on the green cube.
+                    </p>
+                  </div>
+                  <div class="content has-text-centered">
+                    <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                      <source src="./static/videos/0_update.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- 100 Update Card -->
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Center-aligned Title -->
+                  <h5 class="title is-5 has-text-centered">100 Update</h5>
+                  <div class="content has-text-justified">
+                    <p>
+                      After fine-tuning the base policy with a randomly initialized critic for 100 gradient steps, it begins to slightly deviate from the original trajectory. It can still grasp the red cube but fails to place it on the green cube.
+                    </p>
+                  </div>
+                  <div class="content has-text-centered">
+                    <video id="matting-video" controls playsinline height="100%">
+                      <source src="./static/videos/100_update.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- 200 Update Card -->
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Center-aligned Title -->
+                  <h5 class="title is-5 has-text-centered">200 Update</h5>
+                  <div class="content has-text-justified">
+                    <p>
+                      Following an additional 100 gradient updates (200 total), the base policy deviates further from the original trajectory. As a result, it fails to effectively grasp the red cube, marking a significant decline in its performance.
+                    </p>
+                  </div>
+                  <div class="content has-text-centered">
+                    <video id="matting-video" controls playsinline height="100%">
+                      <source src="./static/videos/200_update.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+          
+      
+</body>
+
+</html>

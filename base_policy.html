@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Policy Decorator">
+    <meta name="keywords" content="Robotics">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Policy Decorator</title>
+      
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+      
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+      
+        gtag('js', new Date());
+      
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+      
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+            rel="stylesheet">
+      
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="index.html">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Visualizations
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="index.html">
+              Home
+            </a>
+            <a class="navbar-item" href="base_policy.html">
+              Comparison with Base Policy
+            </a>
+            <a class="navbar-item" href="rl.html">
+              Comparison with RL
+            </a>
+            <a class="navbar-item" href="jsrl.html">
+              Comparison with JSRL
+            </a>
+            <a class="navbar-item" href="policy_degradation.html">
+              Policy Degradation
+            </a>
+            <a class="navbar-item" href="random_residual_actions.html">
+              Random Residual Actions
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+          <!-- First Block Without Card (Title and Introductory Text) -->
+          <div class="columns is-centered">
+            <div class="column is-four-fifths">
+              <!-- Title Centered -->
+              <h2 class="title is-3 has-text-centered">Policy Decorator (Ours) vs. Base Policy</h2>
+              <div class="content has-text-justified">
+                <p>
+                  Our refined policy, learned through Policy Decorator, achieves high success rates while retaining the base policy's strengths. We compare it to the base Diffusion Policy to show how our refined policy navigates the task's hardest parts, where the base policy struggles.
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Key Observations Card -->
+          <div class="columns is-centered">
+            <div class="column is-four-fifths">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Title Centered -->
+                  <h5 class="title is-5 has-text-centered">Key Observations</h5>
+                  <div class="content has-text-justified">
+                    <p>
+                      In challenging tasks requiring precise control, the offline-trained base policy often fails in critical areas. In contrast, Policy Decorator refines the base policy in these areas while staying aligned overall. We highlight these improvements by slowing down the video, marking the critical regions, and showing how Policy Decorator enhances precision and control.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- First Video Card (Peg Insertion Task) -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Title Centered -->
+                  <h5 class="title is-5 has-text-centered">Peg Insertion Task</h5>
+                  <div class="content has-text-justified">
+                    <p>
+                      The Peg Insertion task requires precise manipulation with only 3mm of clearance. The base policy can bring the peg near the hole but fails to align it for insertion. In contrast, our refined Policy Decorator policy accurately inserts the peg while maintaining smooth motion.
+                    </p>
+                  </div>
+                  <div class="content has-text-centered">
+                    <!-- Center-align iframe -->
+                    <iframe src="https://drive.google.com/file/d/1sL8L0VkrvYLPKHPf78MlJ2VD4FDQ1qc-/preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen width="600" height="300"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Second Video Card (Turn Faucet Task) -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <div class="card">
+                <div class="card-content">
+                  <!-- Title Centered -->
+                  <h5 class="title is-5 has-text-centered">Turn Faucet Task</h5>
+                  <div class="content has-text-justified">
+                    <p>
+                      In the Turn Faucet task, the base policy nearly completes the task but misses the faucet handle. In contrast, Policy Decorator refines the handle-turning phase, ensuring successful contact while leaving the rest of the trajectory unchanged.
+                    </p>
+                  </div>
+                  <div class="content has-text-centered">
+                    <!-- Center-align iframe -->
+                    <iframe src="https://drive.google.com/file/d/1iZxkao7KDVPjcdX1dKksjc8EoVh1Wm6n/preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen width="600" height="300"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </section>           
+</body>
+
+</html>
